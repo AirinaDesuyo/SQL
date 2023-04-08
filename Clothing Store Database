@@ -1,0 +1,31 @@
+--Create a grocery store database
+
+CREATE TABLE clothing_store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, section "TEXT", aisle INTEGER);
+INSERT INTO clothing_store VALUES (1, "tops", 15, "unisex", 1);
+INSERT INTO clothing_store VALUES (2, "dresses", 20, "women", 2);
+INSERT INTO clothing_store VALUES (3, "pants", 20, "unisex", 3);
+INSERT INTO clothing_store VALUES (4, "shorts", 15, "unisex", 4);
+INSERT INTO clothing_store VALUES (5, "hats", 10, "unisex", 5);
+INSERT INTO clothing_store VALUES (6, "shorts", 10, "unisex", 6);
+INSERT INTO clothing_store VALUES (7, "shoes", 30, "unisex", 7);
+INSERT INTO clothing_store VALUES (8, "active wear", 20, "unisex", 8);
+INSERT INTO clothing_store VALUES (9, "socks", 10, "unisex", 9);
+INSERT INTO clothing_store VALUES (10, "intimate apparel", 20, "women", 10);
+INSERT INTO clothing_store VALUES (11, "formal wear", 50, "unisex", 11);
+INSERT INTO clothing_store VALUES (12, "accesories", 10, "unisex", 12);
+INSERT INTO clothing_store VALUES (13, "childrens wear", 30, "unisex", 13);
+INSERT INTO clothing_store VALUES (14, "sleep wear", 20, "unisex", 14);
+INSERT INTO clothing_store VALUES (15, "jackets", 50, "unisex", 15);
+
+--display the database ordered by price
+SELECT * FROM clothing_store ORDER BY price;
+
+--display the database showing only which aisles after number 5 
+SELECT * FROM clothing_store WHERE aisle > 5 ORDER BY aisle;
+
+
+
+
+
+
+
