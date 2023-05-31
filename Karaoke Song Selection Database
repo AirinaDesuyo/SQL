@@ -1,4 +1,4 @@
---Create a karaoke song database
+--Created a karaoke song database
 
 CREATE TABLE songs (
     id INTEGER PRIMARY KEY,
@@ -25,13 +25,13 @@ INSERT INTO songs (title, artist, mood, duration, released)
 INSERT INTO songs (title, artist, mood, duration, released)
     VALUES ("Call me maybe", "Carly Rae Jepsen", "happy", 193, 2011);
     
---Select all the song titles
+--Selected all the song titles
 SELECT title FROM songs;
 
---Add another SELECT that uses OR to show the titles of the songs that have an 'epic' mood or a release date after 1990
+--Added another SELECT that used OR to show the titles of the songs that have an 'epic' mood or a release date after 1990
 SELECT title FROM songs WHERE mood = "epic" OR released > 1990;
 
---Add another SELECT that uses AND to show the titles of songs that are 'epic', and released after 1990, and less than 4 minutes long
+--Add another SELECT that used AND to show the titles of songs that are 'epic', and released after 1990, and less than 4 minutes long
 SELECT title FROM songs WHERE mood = "epic" AND released > 1990 AND duration < 240;
 
 --Created a database of songs and artists
@@ -94,12 +94,12 @@ INSERT INTO songs (artist, title)
 INSERT INTO songs (artist, title)
     VALUES ("Guns N' Roses", "Don't cry");
     
---Select the title of all the songs by the artist named 'Queen'
+--Selected the title of all the songs by the artist named 'Queen'
 SELECT title FROM songs WHERE artist = "Queen";
 
---Select the name of all of the artists from the 'Pop' genre
+--Selected the name of all of the artists from the 'Pop' genre
 SELECT name FROM artists WHERE genre = 'Pop';
 
---Add another query that will select the title of all the songs from the 'Pop' artists. It should use IN on a nested subquery that's based on your previous query
+--Added another query that will select the title of all the songs from the 'Pop' artists. It should use IN on a nested subquery that's based on your previous query
 SELECT title FROM songs WHERE artist IN (SELECT name FROM artists WHERE genre = 'Pop');
 
