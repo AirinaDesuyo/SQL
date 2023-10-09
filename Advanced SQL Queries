@@ -31,7 +31,8 @@ SELECT title FROM songs;
 --Added another SELECT that used OR to show the titles of the songs that have an 'epic' mood or a release date after 1990
 SELECT title FROM songs WHERE mood = "epic" OR released > 1990;
 
---Add another SELECT that used AND to show the titles of songs that are 'epic', and released after 1990, and less than 4 minutes long
+--Add another SELECT that used AND to show the titles of songs that are 'epic', and released after 1990, 
+and less than 4 minutes long
 SELECT title FROM songs WHERE mood = "epic" AND released > 1990 AND duration < 240;
 
 --Created a database of songs and artists
@@ -100,10 +101,11 @@ SELECT title FROM songs WHERE artist = "Queen";
 --Selected the name of all of the artists from the 'Pop' genre
 SELECT name FROM artists WHERE genre = 'Pop';
 
---Added another query that will select the title of all the songs from the 'Pop' artists. It should use IN on a nested subquery that's based on your previous query
+--Added another query that will select the title of all the songs from the 'Pop' artists. 
+It should use IN on a nested subquery that's based on your previous query
 SELECT title FROM songs WHERE artist IN (SELECT name FROM artists WHERE genre = 'Pop');
 
---created a database of a few popular authors and their books, with word counts for each book
+--Created a database of a few popular authors and their books, with word counts for each book
 CREATE TABLE books (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     author TEXT,
@@ -143,17 +145,20 @@ INSERT INTO books (author, title, words)
 INSERT INTO books (author, title, words)
     VALUES ("J.R.R. Tolkien", "Return of the King", 134462);
     
---selected all the authors who have written more than 1 million words, using GROUP BY and HAVING. Results table should include the 'author' and their total word count as a 'total_words' column
+--Selected all the authors who have written more than 1 million words, using GROUP BY and HAVING.
+Results table should include the 'author' and their total word count as a 'total_words' column
 SELECT author, SUM(words) AS total_words FROM books 
 GROUP BY author
 HAVING total_words > 1000000;
 
---selected all the authors that write more than an average of 150,000 words per book. Results table should include the 'author' and average words as an 'avg_words' column
+--Selected all the authors that write more than an average of 150,000 words per book. 
+Results table should include the 'author' and average words as an 'avg_words' column
 SELECT author, AVG(words) AS avg_words FROM books 
 GROUP BY author
 HAVING avg_words > 150000;
 
---created a database to track student grades, with their name, number grade, and what percent of activities they've completed
+--Created a database to track student grades, with their name, number grade, 
+and what percent of activities they've completed
 CREATE TABLE student_grades (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
@@ -173,10 +178,12 @@ INSERT INTO student_grades (name, number_grade, fraction_completed)
 INSERT INTO student_grades (name, number_grade, fraction_completed)
     VALUES ("Winstonia", 82, 0.9045);
     
- --selected all of the rows, and displayed the name, number_grade, and percent_completed, which can be computed by multiplying and rounding the fraction_completed column
+ --Selected all of the rows, and displayed the name, number_grade, and percent_completed, 
+which can be computed by multiplying and rounding the fraction_completed column
  SELECT name, number_grade, ROUND (fraction_completed*100) AS percent_completed FROM student_grades;
 
---The goal is a table that shows how many students have earned which letter_grade. You can output the letter_grade by using CASE with the number_grade column, outputting 'A' for grades > 90, 'B' for grades > 80, 'C' for grades > 70, and 'F' otherwise. Then you can use COUNT with GROUP BY to show the number of students with each of those grades
+--The goal is a table that shows how many students have earned which letter_grade. 
+You can output the letter_grade by using CASE with the number_grade column, outputting 'A' for grades > 90, 'B' for grades > 80, 'C' for grades > 70, and 'F' otherwise. Then you can use COUNT with GROUP BY to show the number of students with each of those grades
 SELECT name, number_grade,
 CASE 
 WHEN number_grade > 90 THEN "A"
